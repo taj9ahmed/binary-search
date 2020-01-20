@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+  </head>
+
+  <body>
+    <h3>Binary Search Algorithm Implementation</h3>
+    <div id ="output"></div>
+    
+    
+    <script>
+      // debugger;
+      function binary_search( arr, lmnt ) {
+        //make a copy of the original array
+        var copy_arr = arr.slice();
+        // console.log(Array.isArray(copy_arr));//**//
+        //find the length of the array
+        var length = copy_arr.length;
+        var range = length / 2  ;
+        var copy_arr2 = [];
+        var pos=0;
+        var cntr = 0;
+        do { 
+          
+            //search range is going to decreasing by half eafter each comparison
+            
+            // compare the search item to the middle array element
+            if ( lmnt == copy_arr[range] ) {console.log(cntr);
+              console.log("found. " + lmnt + " position is : "+ ( pos + range ) ) ;//+ (length/2 + 1)
+              break;//found
+            }
+            else if (lmnt > copy_arr[range]) {
+              //cut the array in half using slice() method
+               copy_arr2 = copy_arr.slice(range, length-1); 
+               pos += range ;
+              console.log("lmnt is greater than");
+            } 
+            else if (lmnt < copy_arr[range]) {
+              //cut the array in half using slice() method
+               copy_arr2 = copy_arr.slice(0 , range); 
+               
+              console.log("lmnt is less than");
+              // console.log(range);
+            
+            }
+            range = range / 2 ;
+          copy_arr = [...copy_arr2];
+          cntr++;
+          
+          
+          } while (  1     ); //   * (range > 2)
+          //the number of process repitions is going to be decided by length of
+          
+          //the search range between 2 and 0
+          // return
+      }
+      var items = [ 1, 2, 3, 4, 5, 7, 8, 9];
+      // binary_search(items, 3 );
+      for ( let ndx = 0; ndx < items.length-1; ndx++) {
+        binary_search(items, items[ndx] );
+      }
+    </script>
+  </body>
+
+</html> 
